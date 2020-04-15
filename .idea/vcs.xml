@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/swatcuppython" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/swatdata" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/swatpython" vcs="Git" />
   </component>
 </project>
