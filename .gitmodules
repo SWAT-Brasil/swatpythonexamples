@@ -1,0 +1,9 @@
+[submodule "swatdata"]
+	path = swatdata
+	url = https://github.com/SWAT-Brasil/swatdata.git
+[submodule "swatcuppython"]
+	path = swatcuppython
+	url = https://github.com/SWAT-Brasil/swatcuppython.git
+[submodule "swatpython"]
+	path = swatpython
+	url = https://github.com/SWAT-Brasil/swatpython.git

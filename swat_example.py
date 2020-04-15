@@ -28,16 +28,17 @@ swat = SWAT(SWATVersion.SWAT2012REV670)
 # swat.set_executable('/home/myexecutable')
 
 # Set temp folder where all files and executables will be copied to
+# TODO: tirar isso, copiar os projetos é muito demorado. Utilizar no diretorio original mesmo.
 swat.set_working_folder(os.path.join(current_path, 'temp'))
 
 # Copy all projects files and the swat executable to temp folder
-swat.load_project(os.path.join(current_path, 'myswatproject'))
+swat.load_project(os.path.join(current_path, 'swatdata/swat_sample0_linux'))
 
 # Read data
 # swat.read(1,1,1)
 
 # Run swat
-# swat.run()
+swat.run()
 
 # Read daily pcp1.pcp
 info, data = swat.read_precipitation_daily("pcp1.pcp")

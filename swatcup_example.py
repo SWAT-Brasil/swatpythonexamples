@@ -24,29 +24,33 @@ logger.info("Python version: " + platform.python_version())
 swatcup = SWATCUP(SWATCUPVersion.SWATCUPv5_1_6_2)
 
 # Set project path
-swatcup.set_project_folder(os.path.join(current_path, 'sufi2.Sufi2.SwatCup'))
+swatcup.set_project_folder(os.path.join(current_path, 'swatdata/swatcup_sample0_linux.Sufi2.SwatCup'))
 
-# Exemplo execução sincrona
-#swatcup.sufi2_pre()
-#swatcup.sufi2_run()
-#swatcup.sufi2_post()
+# Para selecionar o exemplo assincrono altere para True
+ASYNC_MODE_EXAMPLE = True
+if not ASYNC_MODE_EXAMPLE:
+    # Exemplo execução sincrona
+    logger.debug("Sync example")
+    swatcup.sufi2_pre()
+    swatcup.sufi2_run()
+    swatcup.sufi2_post()
+else:
+    # Enxemplo execução assincrona
+    logger.debug("Async example")
+    swatcup.sufi2_async_pre()
+    # You can wait to finish
+    swatcup.sufi2_async_wait()
 
-# Enxemplo execução assincrona
-swatcup.sufi2_async_pre()
-# You can wait to finish
-swatcup.sufi2_async_wait()
+    swatcup.sufi2_async_run()
+    # You can do other things while sufi is running
+    while swatcup.sufi2_async_is_running():
+        logger.debug("SUFI2 is running")
+        # Do other stuffs
+        time.sleep(2)
+    logger.debug("Return code:" + str(swatcup.sufi2_async_return_code()))
+    swatcup.sufi2_async_post()
+    swatcup.sufi2_async_wait()
 
-swatcup.sufi2_async_run()
-# You can do other things while sufi is running
-while swatcup.sufi2_async_is_running():
-    logger.debug("SUFI2 is running")
-    # Do other stuffs
-    time.sleep(2)
-
-logger.debug("Return code:" + str(swatcup.sufi2_async_return_code()))
-
-swatcup.sufi2_async_post()
-swatcup.sufi2_async_wait()
 
 
 
