@@ -22,4 +22,5 @@ diferentes funções sem precisar se preocupar com detalhes chatos.
 - Tirar a pasta temp para uso do SWATPython. Isso não vai funcionar bem com projetos
 grandes
 - Documentacao do código de exemplo para facilitar a compreensão de uso
+- Outras coisihas mais
 
