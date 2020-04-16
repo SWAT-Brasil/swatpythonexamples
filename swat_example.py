@@ -32,7 +32,7 @@ swat = SWAT(SWATVersion.SWAT2012REV670)
 swat.set_working_folder(os.path.join(current_path, 'temp'))
 
 # Copy all projects files and the swat executable to temp folder
-swat.load_project(os.path.join(current_path, 'swatdata/swat_sample0_linux'))
+swat.load_project(os.path.join(current_path, 'swatdata/swat2012/linux/swat_sample0'))
 
 # Read data
 # swat.read(1,1,1)

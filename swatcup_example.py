@@ -24,7 +24,7 @@ logger.info("Python version: " + platform.python_version())
 swatcup = SWATCUP(SWATCUPVersion.SWATCUPv5_1_6_2)
 
 # Set project path
-swatcup.set_project_folder(os.path.join(current_path, 'swatdata/swatcup_sample0_linux.Sufi2.SwatCup'))
+swatcup.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/linux/swatcup_sample0.Sufi2.SwatCup'))
 
 # Para selecionar o exemplo assincrono altere para True
 ASYNC_MODE_EXAMPLE = True
