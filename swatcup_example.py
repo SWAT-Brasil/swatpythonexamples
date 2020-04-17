@@ -21,13 +21,13 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 logger.info("Python version: " + platform.python_version())
 
 # Set the SWAT version. Operational system is detected automatically
-swatcup = SWATCUP(SWATCUPVersion.SWATCUPv5_1_6_2)
+swatcup = SWATCUP(SWATCUPVersion.SWATCUP2019)
 
 # Set project path
-swatcup.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/linux/swatcup_sample0.Sufi2.SwatCup'))
+swatcup.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/windows/sufi2.Sufi2.SwatCup'))
 
 # Para selecionar o exemplo assincrono altere para True
-ASYNC_MODE_EXAMPLE = True
+ASYNC_MODE_EXAMPLE = False
 if not ASYNC_MODE_EXAMPLE:
     # Exemplo execução sincrona
     logger.debug("Sync example")
@@ -35,7 +35,7 @@ if not ASYNC_MODE_EXAMPLE:
     swatcup.sufi2_run()
     swatcup.sufi2_post()
 else:
-    # Enxemplo execução assincrona
+    # Exemplo execução assincrona
     logger.debug("Async example")
     swatcup.sufi2_async_pre()
     # You can wait to finish
@@ -48,6 +48,7 @@ else:
         # Do other stuffs
         time.sleep(2)
     logger.debug("Return code:" + str(swatcup.sufi2_async_return_code()))
+
     swatcup.sufi2_async_post()
     swatcup.sufi2_async_wait()
 
