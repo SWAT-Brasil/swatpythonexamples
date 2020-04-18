@@ -35,21 +35,18 @@ swat = SWAT(SWATVersion.SWAT2012REV670)
 
 # Copy all projects files and the swat executable to temp folder
 # Set project path
-operational_system = platform.system()
-if operational_system == "Windows":
-    swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/windows/swat_sample0'))
-elif operational_system == "Linux":
-    swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/linux/swat_sample0'))
-else:
-    raise ValueError("Unknown operational system")
+#operational_system = platform.system()
+#if operational_system == "Windows":
+#    swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat_sample0'))
+#elif operational_system == "Linux":
+#    swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat_sample0'))
+#else:
+#    raise ValueError("Unknown operational system")
 
-#swat.load_project(os.path.join(current_path, 'swatdata/swat2012/linux/swat_sample0'))
-
-# Read data
-# swat.read(1,1,1)
+swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat_sample0'))
 
 # Run swat. Select sync (you wait until finished) or async (runs swat and you can process other things at same time)
-ASYNC_MODE_EXAMPLE = False
+ASYNC_MODE_EXAMPLE = True
 if not ASYNC_MODE_EXAMPLE:
     # Exemplo execução sincrona
     logger.debug("Sync example")
