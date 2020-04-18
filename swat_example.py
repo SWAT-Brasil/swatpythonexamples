@@ -26,8 +26,7 @@ swat = SWAT(SWATVersion.SWAT2012REV670)
 
 # Set custom executable if required. Te executable should work on
 # the same project version and OS defined above. Uncomment to use
-# TODO: still not working properly. Fix someday
-# swat.set_executable('/home/myexecutable')
+# swat.set_custom_swat("/media/jairo/Dados/Jairo/Projetos/SWAT/git/linux/swatpythonexamples/swatpython/swat2012rev670/swat2012_rev670_linux")
 
 # Set temp folder where all files and executables will be copied to
 # TODO: tirar isso, copiar os projetos é muito demorado. Utilizar no diretorio original mesmo.
