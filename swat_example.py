@@ -22,13 +22,13 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 logger.info("Python version: " + platform.python_version())
 
 # Set the SWAT version. OS is detected automatically
-swat = SWAT(SWATVersion.SWAT2012REV670)
+swat = SWAT(SWATVersion.SWAT2012REV637)
 
 # Set custom executable if required. Te executable should work on
 # the same project version and OS defined above. Uncomment to use
 # swat.set_custom_swat("/media/jairo/Dados/Jairo/Projetos/SWAT/git/linux/swatpythonexamples/swatpython/swat2012rev670/swat2012_rev670_linux")
 
-swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat_sample0'))
+swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat2012_rev637/txtinout'))
 
 # Run swat. Select sync (you wait until finished) or async (runs swat and you can process other things at same time)
 ASYNC_MODE_EXAMPLE = False
