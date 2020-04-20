@@ -31,7 +31,7 @@ swat = SWAT(SWATVersion.SWAT2012REV670)
 swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat_sample0'))
 
 # Run swat. Select sync (you wait until finished) or async (runs swat and you can process other things at same time)
-ASYNC_MODE_EXAMPLE = True
+ASYNC_MODE_EXAMPLE = False
 if not ASYNC_MODE_EXAMPLE:
     # Exemplo execução sincrona
     logger.debug("Sync example")
