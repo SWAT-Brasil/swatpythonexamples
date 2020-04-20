@@ -28,20 +28,6 @@ swat = SWAT(SWATVersion.SWAT2012REV670)
 # the same project version and OS defined above. Uncomment to use
 # swat.set_custom_swat("/media/jairo/Dados/Jairo/Projetos/SWAT/git/linux/swatpythonexamples/swatpython/swat2012rev670/swat2012_rev670_linux")
 
-# Set temp folder where all files and executables will be copied to
-# TODO: tirar isso, copiar os projetos é muito demorado. Utilizar no diretorio original mesmo.
-#swat.set_working_folder(os.path.join(current_path, 'temp'))
-
-# Copy all projects files and the swat executable to temp folder
-# Set project path
-#operational_system = platform.system()
-#if operational_system == "Windows":
-#    swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat_sample0'))
-#elif operational_system == "Linux":
-#    swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat_sample0'))
-#else:
-#    raise ValueError("Unknown operational system")
-
 swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat_sample0'))
 
 # Run swat. Select sync (you wait until finished) or async (runs swat and you can process other things at same time)
@@ -65,8 +51,8 @@ info, data = swat.read_precipitation_daily("pcp1.pcp")
 print(info)
 print(data)
 # Write daily pcp1.pcp
-#swat.write_precipitation_daily("pcp2.pcp", info, data)
+swat.write_precipitation_daily("pcp2.pcp", info, data)
 
 # Read output.rch file
-#output = swat.read_output_rch("output.rch")
+output = swat.read_output_rch("output.rch")
 
