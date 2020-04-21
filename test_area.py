@@ -11,10 +11,155 @@ from swatpython.swat2012rev670.swat2012rev670 import SWAT2012rev670
 # Abre arquivo
 import pandas as pd
 
-file = "/media/jairo/Dados/Jairo/Projetos/SWAT/git/SWATPython/sufi2.Sufi2.SwatCup/SUFI2.OUT/goal.txt"
+file = "/media/jairo/Dados/Jairo/Projetos/SWAT/git/linux/swatpythonexamples/swatdata/swat2012/swat2012_rev637/txtinout/file.cio"
 fo = open(file, "r")
-# Le informacoes das primeiras linhas
-line1 = re.findall(r"[^\s\,!?;'\"]+", fo.readline())
+# Le
+fo.readline()
+fo.readline()
+fo.readline()
+fo.readline()
+fo.readline()
+fo.readline()
+filecio = {'FIGFILE': re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0]}
+filecio.update({'NBYR': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'IYR': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'IDAF': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'IDAL': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+fo.readline()
+filecio.update({'IGEN': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'PCPSIM': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'IDT': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'IDIST': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'REXP': float(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NRGAGE': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NRTOT': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NRGFIL': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'TMPSIM': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NTGAGE': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NTTOT': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NTGFIL': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'SLRSIM': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NSTOT': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'RHSIM': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NHTOT': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'WNDSIM': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NWTOT': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'FCSTYR': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'FCSDAY': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'FCSTCYCLES': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+fo.readline()
+line = fo.readline()
+files = []
+for i in range(0, len(line), 13):
+    name = line[i:13].strip()
+    if name != '':
+        files.append(name)
+filecio.update({'RFILE1_6': files})
+line = fo.readline()
+files = []
+for i in range(0, len(line), 13):
+    name = line[i:13].strip()
+    if name != '':
+        files.append(name)
+filecio.update({'RFILE7_12': files})
+line = fo.readline()
+files = []
+for i in range(0, len(line), 13):
+    name = line[i:13].strip()
+    if name != '':
+        files.append(name)
+filecio.update({'RFILE13_18': files})
+fo.readline()
+line = fo.readline()
+files = []
+for i in range(0, len(line), 13):
+    name = line[i:13].strip()
+    if name != '':
+        files.append(name)
+filecio.update({'TFILE1_6': files})
+line = fo.readline()
+files = []
+for i in range(0, len(line), 13):
+    name = line[i:13].strip()
+    if name != '':
+        files.append(name)
+filecio.update({'TFILE7_12': files})
+line = fo.readline()
+files = []
+for i in range(0, len(line), 13):
+    name = line[i:13].strip()
+    if name != '':
+        files.append(name)
+filecio.update({'TFILE13_18': files})
+
+filecio.update({'SLRFILE': fo.readline()[0:12].strip()})
+filecio.update({'RHFILE': fo.readline()[0:12].strip()})
+filecio.update({'WNDFILE': fo.readline()[0:12].strip()})
+filecio.update({'FCSTFILE': fo.readline()[0:12].strip()})
+fo.readline()
+filecio.update({'BSNFILE': fo.readline()[0:12].strip()})
+fo.readline()
+filecio.update({'PLANTDB': fo.readline()[0:12].strip()})
+filecio.update({'TILLDB': fo.readline()[0:12].strip()})
+filecio.update({'PESTDB': fo.readline()[0:12].strip()})
+filecio.update({'FERTDB': fo.readline()[0:12].strip()})
+filecio.update({'URBAMDB': fo.readline()[0:12].strip()})
+fo.readline()
+filecio.update({'ISPROJ': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'ICLB': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'CALFILE': fo.readline()[0:12].strip()})
+fo.readline()
+filecio.update({'IPRINT': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'NYSKIP': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'ILOG': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'IPRP': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+#filecio.update({'IPRS': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+fo.readline()
+fo.readline()
+results = (re.findall(r"[^\s\,!?;'\"]+", fo.readline()))
+results = [int(i) for i in results]
+filecio.update({'IPDVAR': results})
+fo.readline()
+results = (re.findall(r"[^\s\,!?;'\"]+", fo.readline()))
+results = [int(i) for i in results]
+filecio.update({'IPDVAB': results})
+fo.readline()
+results = (re.findall(r"[^\s\,!?;'\"]+", fo.readline()))
+results = [int(i) for i in results]
+filecio.update({'IPDVAS': results})
+fo.readline()
+results = (re.findall(r"[^\s\,!?;'\"]+", fo.readline()))
+results = [int(i) for i in results]
+filecio.update({'IPDHRU': results})
+fo.readline()
+filecio.update({'ATMOFILE': fo.readline()[0:12].strip()})
+filecio.update({'IPHR': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'ISTO': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'ISOL': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'I_SUBW': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'SEPTDB': fo.readline()[0:12].strip()})
+filecio.update({'IA_B': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'IHUMUS': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'ITEMP': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'ISNOW': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'IMGT': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'IWTR': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+filecio.update({'ICALEN': int(re.findall(r"[^\s\,!?;'\"]+", fo.readline())[0])})
+
+
+
+
+
+
+
+
+
+
+
+print(filecio)
+
+exit()
+
 line2 = re.findall(r"[^\s\,!?;'\"]+", fo.readline())
 line3 = re.findall(r"[^\s\,!?;'\"]+", fo.readline())
 

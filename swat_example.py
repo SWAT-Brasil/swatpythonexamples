@@ -30,6 +30,12 @@ swat = SWAT(SWATVersion.SWAT2012REV637)
 
 swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat2012_rev637/txtinout'))
 
+# Read file.cio
+filecio = swat.read_file_cio()
+print('File.cio:')
+for key, value in filecio.items():
+    print(key, value)
+
 # Run swat. Select sync (you wait until finished) or async (runs swat and you can process other things at same time)
 ASYNC_MODE_EXAMPLE = False
 if not ASYNC_MODE_EXAMPLE:
@@ -46,6 +52,8 @@ else:
         time.sleep(1)
     logger.debug("Return code:" + str(swat.async_return_code()))
 
+
+
 # Read daily pcp1.pcp
 info, data = swat.read_precipitation_daily("pcp1.pcp")
 print(info)
@@ -55,4 +63,5 @@ swat.write_precipitation_daily("pcp2.pcp", info, data)
 
 # Read output.rch file
 output = swat.read_output_rch("output.rch")
+print(output)
 
