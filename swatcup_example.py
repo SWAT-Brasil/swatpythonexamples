@@ -26,14 +26,14 @@ swatcup = SWATCUP(SWATCUPVersion.SWATCUP2019)
 # Set project path
 operational_system = platform.system()
 if operational_system == "Windows":
-    swatcup.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/windows/swatcup_sample0.Sufi2.SwatCup'))
+    swatcup.set_project_folder(os.path.join(current_path, 'swatdata/swatcup2019_windows/sufi2.Sufi2.SwatCup'))
 elif operational_system == "Linux":
     swatcup.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/linux/swatcup_sample0.Sufi2.SwatCup'))
 else:
     raise ValueError("Unknown operational system")
 
 # Para selecionar o exemplo assincrono altere para True
-ASYNC_MODE_EXAMPLE = False
+ASYNC_MODE_EXAMPLE = True
 if not ASYNC_MODE_EXAMPLE:
     # Exemplo execução sincrona
     logger.debug("Sync example")
