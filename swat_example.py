@@ -31,10 +31,10 @@ swat = SWAT(SWATVersion.SWAT2012REV637)
 swat.set_project_folder(os.path.join(current_path, 'swatdata/swat2012/swat2012_rev637/txtinout'))
 
 # Read file.cio
-filecio = swat.read_file_cio()
-print('File.cio:')
-for key, value in filecio.items():
-    print(key, value)
+#filecio = swat.read_file_cio()
+#print('File.cio:')
+#for key, value in filecio.items():
+#    print(key, value)
 
 # Run swat. Select sync (you wait until finished) or async (runs swat and you can process other things at same time)
 ASYNC_MODE_EXAMPLE = True
