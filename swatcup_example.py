@@ -5,8 +5,7 @@ import time
 import matplotlib
 import matplotlib.pyplot as p
 # You may need to install python-tk to use matplot lib inside a enviroment
-#sudo apt install python-tk
-# não consigo funcionar dentro do enviroment ainda
+# install pyside2 to get iw working
 
 import pandas as pd
 
