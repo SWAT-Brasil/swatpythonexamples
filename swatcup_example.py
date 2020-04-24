@@ -2,6 +2,11 @@ import logging
 import platform
 import os
 import time
+import matplotlib
+import matplotlib.pyplot as p
+# You may need to install python-tk to use matplot lib inside a enviroment
+#sudo apt install python-tk
+# não consigo funcionar dentro do enviroment ainda
 
 import pandas as pd
 
@@ -9,10 +14,13 @@ import pandas as pd
 from swatcuppython.swatcup import SWATCUP
 from swatcuppython.swatcupversion import SWATCUPVersion
 
+
+
 # Logging stuff for debug - good to find errors. 
 # Change level to logging.INFO for less information
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
 
 # Get this file path. It is always a good idea to use absolute paths to avoid weird bugs
 current_path = os.path.dirname(os.path.abspath(__file__))
@@ -37,9 +45,9 @@ ASYNC_MODE_EXAMPLE = False
 if not ASYNC_MODE_EXAMPLE:
     # Exemplo execução sincrona
     logger.debug("Sync example")
-    swatcup.sufi2_pre()
-    swatcup.sufi2_run()
-    swatcup.sufi2_post()
+    #swatcup.sufi2_pre()
+    #swatcup.sufi2_run()
+    #swatcup.sufi2_post()
 else:
     # Exemplo execução assincrona
     logger.debug("Async example")
@@ -58,25 +66,25 @@ else:
     swatcup.sufi2_async_post()
     swatcup.sufi2_async_wait()
 
+# Shows result
+out_file_names = swatcup.read_sufi2_var_file_name()
+print(out_file_names)
+logger.info("Output files: " + str(out_file_names))
+
+info, df = swatcup.read_sufi2_out_goal()
+logger.info("Goal: " + str(info))
+#logger.info("Goal: " + str(df))
+print(df)
+
+# read output files
+#data = swatcup.read
+VAR_ID = 3
+filename = out_file_names[VAR_ID]
+var = swatcup.read_sufi2_var(filename)
+ax = var.plot(title=filename)
+ax.set_xlabel('time step')
+ax.set_ylabel('intensity')
+p.show()
 
 
 
-#TODO: diminuir o numero de rodaddas para agilizar o exemplor
-# criar pasta swatcuppython dentro da pasta do projeto para salvar arquivos temporarios e resultados
-# Entender o pre processamento que deve ser feito nos dados observador e implementar
-# ENtender a extraçao de dados e implemetar funcao para isso
-# Semparar git para swatpython e swatcuppython
-# separar variaria geradas em sufi2_pre() e rodar elas de forma concurente em diferentes processos, isso deve
-# aumentar bastante a velocidade, pois muitot empo é gasto em processamento dos arquivos
-# fazer um loader disso aqui para utilizar no Colabs do google com o gdrive e botar o colab pra fritar
-# transformar em package
-# rotinas de teste
-# automatizar publicação de pacotes. cd B
-
-
-# Probleas conhecidos:
-# em linux o tamanho das letras nos nomes dos arquivos importa, por isso pode dar aguns paus...precisa ser do jeito
-# cerrtinho.
-# Quando for copiar o windows faca o zip no windows e descompacte no linux, caso contrario pode aparecer arquivos
-# com mesmos nomes mas case diferentes...e ai nao da pra saber qual  é o correto.
-# Sempre qque der algum pau estrnho no swat-edit deve ser arquivos duplicados ou tamanho das letras erradas.

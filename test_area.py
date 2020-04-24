@@ -1,5 +1,6 @@
 import platform
 import re
+import numpy
 from swatpython.swat2012rev670.swat2012rev670 import SWAT2012rev670
 
 # Area para desenvolvimento e testes de funcoes Python - é mais facil qd fazer isso dentro das classes
@@ -10,6 +11,51 @@ from swatpython.swat2012rev670.swat2012rev670 import SWAT2012rev670
 #fo = open(filename, "r")
 # Abre arquivo
 import pandas as pd
+
+file = '/media/jairo/Dados/Jairo/Projetos/SWAT/git/linux/swatpythonexamples/swatdata/swatcup2019_linux/sufi2.Sufi2.SwatCup/SUFI2.OUT/NO3_OUT_7.txt'
+fo = open(file, "r")
+#df = pd.read_csv(fo, header=None, delim_whitespace=True, nrows=1)
+#while row = numpy.loadtxt(fo, max_rows=1):
+#    print(row)
+iterations = []
+data = []
+index = []
+data_index = -1
+new_col = True
+for line in fo:
+    list = line.split()
+    if len(list) == 1:
+        # numero da iteracao
+        iterations.append(int(list[0]))
+        new_col = True
+        data.append([])
+        index.append([])
+        data_index += 1
+    if len(list) == 2:
+        # dados
+        time_step = int(list[0])
+        value = float(list[1])
+        data[data_index].append(value)
+        index[data_index].append(time_step)
+
+fo.close()
+# TODO: this assume the file is correct and with all values. Make it more robust in the future
+df = pd.DataFrame(columns=iterations, index=index[0], data=numpy.transpose(data))
+
+
+print(data)
+print(df)
+
+#with open(file, 'r') as fo:
+#    row = numpy.loadtxt(fo, max_rows=1)
+#    print(row)
+
+
+
+
+exit()
+
+
 
 file = "/media/jairo/Dados/Jairo/Projetos/SWAT/git/linux/swatpythonexamples/swatdata/swat2012/swat2012_rev637/txtinout/file.cio"
 fo = open(file, "r")
